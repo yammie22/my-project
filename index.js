@@ -4,7 +4,7 @@ function search(event) {
     let cityElement = document.querySelector("#current-city");
     let query = searchInputElement.value;
   
-    let URL = `https://api.shecodes.io/weather/v1/current?query=${query}&key=e58b0ocdff38468t6a1b1500dbba57c6&units=metric`;
+    let URL = `https://api.shecodes.io/weather/v1/current?query=${query}&key=b2a5adcct04b33178913oc335f405433&units=metric`;
   
     axios
       .get(URL)
