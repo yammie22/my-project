@@ -48,6 +48,9 @@ function search(event) {
     let temp = Math.round(response.data.temperature.current);
     let currentTemp = document.querySelector(".current-temperature-value");
     currentTemp.innerHTML = temp;
+    let descrsiptionElement = document.querySelector("#description");
+    descrsiptionElement.innerHTML = response.data.condition.description;
+
   }
   
   let searchForm = document.querySelector("#search-form");
