@@ -1,18 +1,28 @@
-function search(event) {
-    event.preventDefault();
-    let searchInputElement = document.querySelector("#search-input");
-    let cityElement = document.querySelector("#current-city");
-    let query = searchInputElement.value;
-  
-    let URL = `https://api.shecodes.io/weather/v1/current?query=${query}&key=b2a5adcct04b33178913oc335f405433&units=metric`;
-  
-    axios
-      .get(URL)
-      .then(displayWeatherCondition)
-      .catch((error) => {
-        console.error("Error fetching weather data:", error);
-      });
-  }
+function refreshWeather(response) {
+  let temperatureElement = document.querySelector(".current-temperature-value");
+  let temperature = response.data.temperature.current;
+  let cityElement = document.querySelector("#current-city");
+
+  cityElement.innerHTML = response.data.city;
+  temperatureElement.innerHTML = Math.round(temperature);
+}
+
+function searchCity(city) {
+  let apiKey = "b2a5adcct04b33178913oc335f405433";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(refreshWeather);
+}
+
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form");
+
+  searchCity(searchInput.value);
+}
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
+
   
   function formatDate(date) {
     let minutes = date.getMinutes();
