@@ -104,6 +104,6 @@ function search(city) {
   }
 
   
-  //search("paris");
+  search("paris");
   displayForecast();
 
