@@ -1,7 +1,8 @@
-function search(city) {
-
+function search(event) {
+  event.preventDefault();
+  const city = document.querySelector("#search-input")
   
-    let URL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=b2a5adcct04b33178913oc335f405433&units=metric`;
+    let URL = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=b2a5adcct04b33178913oc335f405433&units=metric`;
   
     axios
       .get(URL)
@@ -88,7 +89,7 @@ function search(city) {
         `
         <div class="weather-forecast-day">
           <div class="weather-forecast-date">${day}</div>
-          <div class="weather-forecast-icon">🌤️</div>
+          <div class="weather-forecast-icon">:mostly_sunny:</div>
           <div class="weather-forecast-temperatures">
             <div class="weather-forecast-temperature">
               <strong>15º</strong>
@@ -103,7 +104,14 @@ function search(city) {
     forecastElement.innerHTML = forecastHtml;
   }
 
-  
-  search("paris");
+  const searchElement = document.querySelector("#search-form")
+  searchElement.addEventListener("submit", search)
+
   displayForecast();
+
+
+
+
+
+
 
