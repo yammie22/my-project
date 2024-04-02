@@ -89,7 +89,7 @@ function search(event) {
         `
         <div class="weather-forecast-day">
           <div class="weather-forecast-date">${day}</div>
-          <div class="weather-forecast-icon">:mostly_sunny:</div>
+          <div class="weather-forecast-icon">🌤️</div>
           <div class="weather-forecast-temperatures">
             <div class="weather-forecast-temperature">
               <strong>15º</strong>
